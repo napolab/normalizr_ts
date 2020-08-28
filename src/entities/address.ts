@@ -1,8 +1,8 @@
 import { createEntity } from "../normalizer";
+import { BaseEntity } from "../types";
 
 export type IAddress = {
-  id: string;
   name: string;
-};
+} & BaseEntity;
 
 export const addressEntity = createEntity<IAddress>("addresses", {});

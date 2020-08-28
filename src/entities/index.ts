@@ -1,7 +1,7 @@
 import { IUser } from "./user";
-import { NormalizedEntity } from "../types";
 import { IGroup } from "./group";
 import { IAddress } from "./address";
+import { NormalizedEntity } from "../types";
 
 export type Entities = {
   users: { [key: string]: NormalizedEntity<IUser> };

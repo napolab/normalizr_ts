@@ -12,12 +12,14 @@ const user1: IUser = {
   id: "user1",
   name: "naporitan",
   address,
+  keys: { a: "naporitan", b: 1 },
 };
 
 const user2: IUser = {
   id: "user2",
   name: "naporitan2",
   address,
+  keys: { a: "naporitan2", b: 2 },
 };
 
 const group: IGroup = {

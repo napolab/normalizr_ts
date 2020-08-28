@@ -67,6 +67,7 @@ const user1: IUser = {
   name: "naporitan",
   address,
   keys: { a: "naporitan", b: 1 },
+  complex: { hoge: "" },
 };
 
 const user2: IUser = {
@@ -74,12 +75,14 @@ const user2: IUser = {
   name: "naporitan2",
   address,
   keys: { a: "naporitan2", b: 2 },
+  complex: { huga: "" },
 };
 
 const group: IGroup = {
   id: "gorup1",
   users: [user1, user2],
 };
+
 
 const { entities, result } = normalizer(group, groupEntity);
 // entityの塊とidの塊に分ける

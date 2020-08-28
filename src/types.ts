@@ -11,6 +11,7 @@ export type NonReferenceType = Primitive | NestArray<Primitive>;
 // entity types
 export type BaseEntity = {
   id: string;
+  _$entity?: unknown;
 };
 
 // T[K]が無限ネストの配列である可能性がある

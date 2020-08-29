@@ -1,12 +1,10 @@
 import { schema } from "normalizr";
 
-type Primitive = number | string | boolean | null | undefined | symbol | never | void;
 type ArrayToString<T> = T extends Array<infer U> ? Array<ArrayToString<U>> : string;
 
 // utility types
 export type NestArray<T> = T | Array<NestArray<T>>;
 export type FilteredKeys<T, U> = { [P in keyof T]: T[P] extends U ? never : P }[keyof T];
-export type NonReferenceType = Primitive | NestArray<Primitive>;
 
 // entity types
 export type BaseEntity = {
@@ -15,11 +13,10 @@ export type BaseEntity = {
 };
 
 // T[K]が無限ネストの配列である可能性がある
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type Flatten<T extends NestArray<unknown>> = T extends NestArray<infer I> ? I : never;
 
 type FindKeys<T> = {
-  [K in keyof T]: keyof BaseEntity extends keyof Flatten<T[K]> ? K : never;
+  [K in keyof T]: keyof BaseEntity extends keyof Exclude<Flatten<T[K]>, undefined | null> ? K : never;
 }[keyof T];
 
 export type Find<T> = {

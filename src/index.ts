@@ -14,6 +14,7 @@ const user1: IUser = {
   address,
   keys: { a: "naporitan", b: 1 },
   complex: { hoge: "" },
+  createdAt: new Date(),
 };
 
 const user2: IUser = {
@@ -22,6 +23,7 @@ const user2: IUser = {
   address,
   keys: { a: "naporitan2", b: 2 },
   complex: { huga: "" },
+  createdAt: new Date(),
 };
 
 const group: IGroup = {

@@ -8,6 +8,7 @@ export type IUser = {
   address: IAddress;
   keys: { a: string; b: number };
   complex: Complex;
+  createdAt: Date;
 } & BaseEntity;
 
 export const userEntity = createEntity<IUser>("users", { address: addressEntity });

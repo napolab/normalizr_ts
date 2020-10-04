@@ -1,5 +1,7 @@
 # normalizr+TS
 
+https://codesandbox.io/s/empty-glade-xxys6
+
 ## functions
 - createEntity
 - normalizer

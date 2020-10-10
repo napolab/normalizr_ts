@@ -16,7 +16,7 @@ export type BaseEntity = {
 type Flatten<T extends NestArray<unknown>> = T extends NestArray<infer I> ? I : never;
 
 type FindKeys<T> = {
-  [K in keyof T]: keyof BaseEntity extends keyof Exclude<Flatten<T[K]>, undefined | null> ? K : never;
+  [K in keyof T]: Exclude<Flatten<T[K]>, undefined | null> extends BaseEntity ? K : never;
 }[keyof T];
 
 export type Find<T> = {

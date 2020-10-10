@@ -1,9 +1,8 @@
 import { IUser, userEntity } from "./user";
-import { createEntity } from "../normalizer";
-import { BaseEntity } from "../types";
+import { BaseEntity, createEntity } from "../normalizer";
 
 export type IGroup = {
   users: IUser[];
-} & BaseEntity;
+} & BaseEntity<"groups">;
 
 export const groupEntity = createEntity<IGroup>("groups", { users: [userEntity] });

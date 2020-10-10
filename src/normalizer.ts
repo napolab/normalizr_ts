@@ -66,8 +66,12 @@ export const normalize = <T extends BaseEntity<string>>(
 type Denormalized<D, S> = D extends Array<infer U> ? Array<Denormalized<U, S>> : S | undefined;
 type DataToEntity<D, T> = D extends Array<infer U> ? [DataToEntity<U, T>] : schema.Entity<T>;
 
-export const denormalize = <D extends NestedArray<BaseEntity<string>["id"]>, S extends BaseEntity<string>>(
+export const denormalize = <
+  D extends NestedArray<BaseEntity<string>["id"]>,
+  S extends BaseEntity<string>,
+  E extends Entities<S>
+>(
   data: D,
   schema: DataToEntity<D, S>,
-  entities: Entities<S>,
+  entities: E,
 ): Denormalized<D, S> => denormalizr(data, schema, entities);

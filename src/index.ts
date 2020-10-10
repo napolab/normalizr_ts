@@ -42,4 +42,4 @@ console.log("entities", JSON.stringify(entities, null, 2));
 console.log(denormalize(result, groupEntity, entities));
 
 // groupからuserIDを引いてそれをdenormalizeしてみる
-console.log(denormalize(entities.groups[result].users, [userEntity], entities));
+console.log(denormalize(entities.groups[result].users, [userEntity], { ...entities, a: "" }));

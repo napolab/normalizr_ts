@@ -11,26 +11,26 @@ https://codesandbox.io/s/empty-glade-xxys6
 Genericに代入されたTの型から紐づくエンティティを要求し、新しいエンティティを作成する関数
 
 ```typescript
-const createEntity = <T extends BaseSchema>(
+const createEntity = <T extends BaseSchema<string>>(
   entityName: string,
   relatedEntities: RelatedEntities<T>,
 ): schema.Entity<T> => new schema.Entity<T>(entityName, relatedEntities);
 ```
 
-### normalizer
-型がガバガバだったので型付けただけのラッパー
+### normalize
+第1引数にEntity型のオブジェクトを受け入れ, 第2引数にEntityの構造を定義しているオブジェクトを受け入れる。
 
 ```typescript
-export const normalizer = <T>(data: T, schema: Schema<T>): NormalizedSchema<Entities, Result<T>> =>
+export const normalize = <T>(data: T, schema: Schema<T>): NormalizedSchema<Entities, Result<T>> =>
   normalize<T, Entities, Result<T>>(data, schema);
 ```
 
-### denormalizer
+### denormalize
 dataをセットすると代入するべきschemaを要求する関数.idとentitiesからもとのオブジェクトを逆引きする
 
 
 ```typescript
-export const denormalizer = <D extends NestArray<string>, S, T extends Entities>(
+export const denormalize = <D extends NestArray<string>, S, T extends Entities>(
   data: D,
   schema: Entity<D, S>,
   entities: T,
@@ -45,15 +45,15 @@ export const denormalizer = <D extends NestArray<string>, S, T extends Entities>
 
 ```typescript
 import { IUser, userEntity } from "./user";
-import { createEntity } from "../normalizer";
+import { createEntity, BaseEntity } from "../normalizer";
 
+// BaseEntityのGenericにはnormalizrのnew schema.Entityの第1引数に入れていた文字列を入れてください。
 export type IGroup = {
   id: string;
   users: IUser[];
-};
+} & BaseEntity<"groups">;
 
-// IGroupに含まれるprimitiveでない型をEntityとして定義する.
-// しないと型エラーが出るようになってる
+// IGroupに含まれるBaseEntityを含まれる型をEntityとして定義する.
 export const groupEntity = createEntity<IGroup>("groups", { users: [userEntity] });
 ```
 

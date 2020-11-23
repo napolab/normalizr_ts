@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+const base = require("./jest.config.base.js");
+
 module.exports = {
-  roots: ["<rootDir>/src"],
-  testMatch: ["**/__tests__/**/*.+(ts|tsx|js)", "**/?(*.)+(spec|test).+(ts|tsx|js)"],
-  transform: {
-    "^.+\\.(ts|tsx)$": "ts-jest",
-  },
+  ...base,
+  projects: ["<rootDir>/packages/*/jest.config.js"],
+  coverageDirectory: "<rootDir>/coverage/",
 };

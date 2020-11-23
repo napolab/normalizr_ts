@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "packages/core"
+		},
+		{
+			"path": "packages/jotai"
+		},
+		{
+			"path": "packages/redux"
+		}
+	],
+	"settings": {
+		"typescript.tsdk": "normalizr_ts/node_modules/typescript/lib"
+	}
+}

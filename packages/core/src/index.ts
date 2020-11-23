@@ -1,6 +1,7 @@
 // normalize
 import normalizr, { schema } from "normalizr";
-import { Flatten, Nothing, ReplaceArray, UnionToIntersection, NestArray } from "./utility";
+
+import { Flatten, NestArray, Nothing, ReplaceArray, UnionToIntersection } from "./utility";
 
 declare const $entity: unique symbol;
 type ID = string | number;

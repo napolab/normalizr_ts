@@ -1,18 +1,19 @@
 {
   "name": "@surikiri/core",
-  "version": "0.0.0",
+  "version": "0.0.1-alpha.0",
   "description": "> TODO: description",
   "author": "napori0624 <naporin0624@gmail.com>",
   "homepage": "https://github.com/naporin0624/normalizr_ts#readme",
   "license": "ISC",
   "main": "lib/index-cjs.js",
   "module": "lib/index-esm.js",
-  "directories": {
-    "lib": "lib",
-    "test": "__tests__"
-  },
+  "private": false,
+  "types": "lib/index.d.ts",
   "files": [
-    "lib"
+    "lib/index-cjs.js",
+    "lib/index-esm.js",
+    "lib/index.d.ts",
+    "package.json"
   ],
   "repository": {
     "type": "git",
@@ -25,7 +26,8 @@
     "url": "https://github.com/naporin0624/normalizr_ts/issues"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   },
   "dependencies": {
     "normalizr": "^3.6.1"
@@ -37,5 +39,6 @@
     "rollup-plugin-typescript2": "^0.29.0",
     "ts-jest": "^26.4.4",
     "typescript": "^4.1.2"
-  }
+  },
+  "gitHead": "1a6af1984c3d6d5fe47a95d226bdd1f34a7b7607"
 }
